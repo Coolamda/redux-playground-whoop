@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
+
+const FlexContainer = styled.main`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 
 const mapStateToProps = state => ({
   posts: state.posts.posts
@@ -32,7 +39,7 @@ export default connect(
     };
 
     render() {
-      return <main>{this.renderPosts()}</main>;
+      return <FlexContainer>{this.renderPosts()}</FlexContainer>;
     }
   }
 );
