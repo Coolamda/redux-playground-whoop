@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import Layout from "./containers/Layout";
 import Posts from "./containers/Posts";
 
 const App = styled.div`
@@ -14,8 +15,10 @@ const Heading = styled.h1`
 `;
 
 export default () => (
-  <App>
-    <Heading>Posts</Heading>
-    <Posts />
-  </App>
+  <Layout>
+    <App>
+      <Heading>Posts</Heading>
+      <Posts />
+    </App>
+  </Layout>
 );
