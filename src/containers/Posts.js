@@ -1,30 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
+import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
 
-export default class extends Component {
-  state = {
-    posts: null
-  };
+const mapStateToProps = state => ({
+  posts: state.posts.posts
+});
 
-  async componentDidMount() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const posts = await response.json();
+const mapDispatchToProps = dispatch => ({
+  fetchPosts: () => dispatch(fetchPosts())
+});
 
-    this.setState({ posts });
-  }
-
-  renderPosts = () => {
-    if (!this.state.posts) {
-      return <p>Loading...</p>;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
+  class extends Component {
+    componentDidMount() {
+      this.props.fetchPosts();
     }
 
-    return this.state.posts.map(({ id, title, body }) => (
-      <Post key={id} title={title} body={body} />
-    ));
-  };
+    renderPosts = () => {
+      if (!this.props.posts) {
+        return <p>Loading...</p>;
+      }
 
-  render() {
-    return <main>{this.renderPosts()}</main>;
+      return this.props.posts.map(({ id, title, body }) => (
+        <Post key={id} title={title} body={body} />
+      ));
+    };
+
+    render() {
+      return <main>{this.renderPosts()}</main>;
+    }
   }
-}
+);
