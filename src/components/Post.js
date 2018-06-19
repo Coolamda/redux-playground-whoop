@@ -5,7 +5,7 @@ const Article = styled.article`
   border: 1px solid #eee;
   border-radius: 2px;
   padding: 1rem;
-  flex-basis: 30%;
+  flex-basis: 400px;
   margin-bottom: 1rem;
 
   :hover {
