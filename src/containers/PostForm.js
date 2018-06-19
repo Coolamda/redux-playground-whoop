@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 
 import { createPost } from "../actions/posts";
 import Heading from "../components/Heading";
-import LinkButton from "../components/LinkButton";
+import { Button, LinkButton } from "../components/Button";
 import TextArea from "../components/TextArea";
 import Label from "../components/Label";
 import Input from "../components/Input";
-import Flex from "../components/Flex";
+import { Column, Row } from "../components/Layout";
 
 const mapDispatchToProps = dispatch => ({
   createPost: (title, body) => dispatch(createPost(title, body))
@@ -38,6 +38,7 @@ export default connect(
         title: "",
         body: ""
       });
+      this.props.history.push("/");
     };
 
     render() {
@@ -45,7 +46,7 @@ export default connect(
         <Fragment>
           <Heading>Add a post</Heading>
           <form onSubmit={this.onSubmitHandler}>
-            <Flex>
+            <Column>
               <Label>Title</Label>
               <Input
                 type="text"
@@ -54,8 +55,8 @@ export default connect(
                 onChange={this.onTitleChangeHandler}
                 required
               />
-            </Flex>
-            <Flex>
+            </Column>
+            <Column>
               <Label>Content</Label>
               <TextArea
                 type="textarea"
@@ -64,8 +65,11 @@ export default connect(
                 onChange={this.onBodyChangeHandler}
                 required
               />
-            </Flex>
-            <LinkButton to="/">Submit</LinkButton>
+            </Column>
+            <Row>
+              <LinkButton to="/">Back</LinkButton>
+              <Button>Submit</Button>
+            </Row>
           </form>
         </Fragment>
       );

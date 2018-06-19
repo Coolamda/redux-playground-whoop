@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link as RRLink } from "react-router-dom";
 
-export default styled.button`
+export const Button = styled.button`
   display: flex;
   width: 60%;
   margin: 1rem auto;
@@ -14,5 +15,15 @@ export default styled.button`
   :hover {
     background-color: #ff4757;
     cursor: pointer;
+  }
+`;
+
+const Link = Button.withComponent(RRLink);
+
+export const LinkButton = Link.extend`
+  text-decoration: none;
+
+  :hover {
+    color: white;
   }
 `;

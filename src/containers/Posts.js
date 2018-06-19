@@ -7,7 +7,7 @@ import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
 import Spinner from "../components/Spinner";
 import Heading from "../components/Heading";
-import LinkButton from "../components/LinkButton";
+import { LinkButton } from "../components/Button";
 
 const FlexContainer = styled.main`
   display: flex;
