@@ -15,7 +15,7 @@ export default styled.div`
   border-top: 1.1em solid rgba(255, 71, 87, 0.2);
   border-right: 1.1em solid rgba(255, 71, 87, 0.2);
   border-bottom: 1.1em solid rgba(255, 71, 87, 0.2);
-  border-left: 1.1em solid #ff4757;
+  border-left: 1.1em solid #ff6b81;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

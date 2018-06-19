@@ -7,6 +7,7 @@ import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
 import Spinner from "../components/Spinner";
 import Heading from "../components/Heading";
+import LinkButton from "../components/LinkButton";
 
 const FlexContainer = styled.main`
   display: flex;
@@ -45,6 +46,7 @@ export default connect(
       return (
         <Fragment>
           <Heading>Posts</Heading>
+          <LinkButton to="/create-post">Create post</LinkButton>
           <FlexContainer>{this.renderPosts()}</FlexContainer>
         </Fragment>
       );
