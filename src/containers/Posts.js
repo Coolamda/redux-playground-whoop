@@ -5,6 +5,7 @@ import _ from "lodash";
 
 import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
+import Spinner from "../components/Spinner";
 
 const FlexContainer = styled.main`
   display: flex;
@@ -31,7 +32,7 @@ export default connect(
 
     renderPosts = () => {
       if (!this.props.posts) {
-        return <p>Loading...</p>;
+        return <Spinner>Loading...</Spinner>;
       }
 
       return _.map(this.props.posts, ({ body, title }, id) => (
