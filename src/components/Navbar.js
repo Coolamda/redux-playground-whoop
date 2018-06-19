@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom";
+
 const FlexList = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -14,6 +16,14 @@ const FlexItem = styled.li`
   margin: 0;
   display: inline-block;
   padding: 1rem 0.75rem;
+`;
+
+const Brand = FlexItem.extend`
+  font-weight: bold;
+`;
+
+const Link = styled(NavLink)`
+  text-decoration: none;
 
   :hover {
     cursor: pointer;
@@ -21,19 +31,21 @@ const FlexItem = styled.li`
   }
 `;
 
-const Brand = FlexItem.extend`
-  font-weight: bold;
-`;
-
 export default () => (
   <nav>
     <FlexList>
       <div>
-        <Brand>Redux</Brand>
+        <Brand>
+          <Link to="/">Redux</Link>
+        </Brand>
       </div>
       <div>
-        <FlexItem>Posts</FlexItem>
-        <FlexItem>Photos</FlexItem>
+        <FlexItem>
+          <Link to="/">Posts</Link>
+        </FlexItem>
+        <FlexItem>
+          <Link to="/photos">Photos</Link>
+        </FlexItem>
       </div>
     </FlexList>
   </nav>

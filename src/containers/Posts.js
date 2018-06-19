@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import _ from "lodash";
@@ -6,6 +6,7 @@ import _ from "lodash";
 import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
 import Spinner from "../components/Spinner";
+import Heading from "../components/Heading";
 
 const FlexContainer = styled.main`
   display: flex;
@@ -41,7 +42,12 @@ export default connect(
     };
 
     render() {
-      return <FlexContainer>{this.renderPosts()}</FlexContainer>;
+      return (
+        <Fragment>
+          <Heading>Posts</Heading>
+          <FlexContainer>{this.renderPosts()}</FlexContainer>
+        </Fragment>
+      );
     }
   }
 );

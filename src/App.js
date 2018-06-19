@@ -1,24 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { Route, Switch } from "react-router-dom";
 
 import Layout from "./containers/Layout";
 import Posts from "./containers/Posts";
+import PostForm from "./containers/PostForm";
 
 const App = styled.div`
   width: 60%;
   margin: 1rem auto 0;
 `;
 
-const Heading = styled.h1`
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-`;
-
 export default () => (
   <Layout>
     <App>
-      <Heading>Posts</Heading>
-      <Posts />
+      <Switch>
+        <Route path="/create-post" component={PostForm} />
+        <Route exact path="/" component={Posts} />
+      </Switch>
     </App>
   </Layout>
 );

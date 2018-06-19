@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import Typography from "typography";
 import funstonTheme from "typography-theme-funston";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
@@ -23,7 +24,9 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
