@@ -32,7 +32,7 @@ export default connect(
       this.props.fetchPosts();
     }
 
-    renderPosts = () => {
+    renderPosts() {
       if (!this.props.posts) {
         return <Spinner>Loading...</Spinner>;
       }
@@ -40,7 +40,7 @@ export default connect(
       return _.map(this.props.posts, ({ body, title }, id) => (
         <Post key={id} title={title} body={body} />
       ));
-    };
+    }
 
     render() {
       return (
