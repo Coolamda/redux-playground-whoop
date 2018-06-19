@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import _ from "lodash";
 
 import { fetchPosts } from "../actions/posts";
 import Post from "../components/Post";
@@ -33,7 +34,7 @@ export default connect(
         return <p>Loading...</p>;
       }
 
-      return this.props.posts.map(({ id, title, body }) => (
+      return _.map(this.props.posts, ({ body, title }, id) => (
         <Post key={id} title={title} body={body} />
       ));
     };
