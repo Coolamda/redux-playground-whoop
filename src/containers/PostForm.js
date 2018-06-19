@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { createPost } from "../actions/posts";
 import Heading from "../components/Heading";
-import Button from "../components/Button";
+import LinkButton from "../components/LinkButton";
 import TextArea from "../components/TextArea";
 import Label from "../components/Label";
 import Input from "../components/Input";
@@ -34,6 +34,10 @@ export default connect(
     onSubmitHandler = event => {
       event.preventDefault();
       this.props.createPost(this.state.title, this.state.body);
+      this.setState({
+        title: "",
+        body: ""
+      });
     };
 
     render() {
@@ -61,7 +65,7 @@ export default connect(
                 required
               />
             </Flex>
-            <Button>Submit</Button>
+            <LinkButton to="/">Submit</LinkButton>
           </form>
         </Fragment>
       );
