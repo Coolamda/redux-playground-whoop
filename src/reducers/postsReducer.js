@@ -11,6 +11,8 @@ export default (state = initialState, action) => {
       return { ...state, posts: action.payload.posts };
     case actions.FETCH_POSTS_FAIL:
       return { ...state, error: action.payload.error };
+    case actions.CREATE_POST_SUCCESS:
+      return { ...state, [action.payload.name]: action.payload.post };
     default:
       return state;
   }
