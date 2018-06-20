@@ -9,10 +9,14 @@ import Spinner from "../components/Spinner";
 import Heading from "../components/Heading";
 import { LinkButton } from "../components/Button";
 
-const FlexContainer = styled.main`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+const Grid = styled.main`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const mapStateToProps = state => ({
@@ -47,7 +51,7 @@ export default connect(
         <Fragment>
           <Heading>Posts</Heading>
           <LinkButton to="/create-post">Create post</LinkButton>
-          <FlexContainer>{this.renderPosts()}</FlexContainer>
+          <Grid>{this.renderPosts()}</Grid>
         </Fragment>
       );
     }

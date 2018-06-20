@@ -7,8 +7,12 @@ import Posts from "./containers/Posts";
 import PostForm from "./containers/PostForm";
 
 const App = styled.div`
-  width: 60%;
+  width: 90%;
   margin: 1rem auto 0;
+
+  @media (min-width: 768px) {
+    width: 70%;
+  }
 `;
 
 export default () => (
