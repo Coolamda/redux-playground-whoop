@@ -33,7 +33,9 @@ export default connect(
 )(
   class extends Component {
     componentDidMount() {
-      this.props.fetchPosts();
+      if (!this.props.posts) {
+        this.props.fetchPosts();
+      }
     }
 
     renderPosts() {
@@ -41,8 +43,8 @@ export default connect(
         return <Spinner>Loading...</Spinner>;
       }
 
-      return _.map(this.props.posts, ({ body, title }, id) => (
-        <Post key={id} title={title} body={body} />
+      return _.map(this.props.posts, ({ body, title }, name) => (
+        <Post key={name} title={title} body={body} name={name} />
       ));
     }
 
